@@ -7,7 +7,7 @@ import time
 CHANNELS = []
 GENERAL_CONTEXT = "You are an assistant for a rolePlay discord server. Here are the text formats to use:\n**action**\n*thinking*\n'talking'. Answer shortly."
 
-bot = Client(intents=Intents.DEFAULT | Intents.MESSAGE_CONTENT, debug_scope=1067544019007197284)
+bot = Client(intents=Intents.DEFAULT | Intents.MESSAGE_CONTENT, debug_scope=123456789012345645)
 
 @listen()  
 async def on_ready():
@@ -18,13 +18,10 @@ async def on_ready():
 async def on_message_create(event):
     if(event.message.channel.id in CHANNELS) and (event.message.author.id != bot.user.id):
         if(not event.message.content.startswith("#")):
-            #await event.defer()
-            #chat = chat_handler(str(event.message.channel.id))
-            #message = chat.prompt(event.message.content)
-            #await event.message.channel.send(message)
-            time.sleep(180)
-            await event.message.channel.send("Yo !")
-            #got: ConnectionResetError: Cannot write to closing transport
+            await event.defer()
+            chat = chat_handler(str(event.message.channel.id))
+            message = chat.prompt(event.message.content)
+            await event.message.channel.send(message)
             #FIXME
 
 @slash_command(name="add_channel", description="Adds the current channel to the list of channels observed by the AI")
