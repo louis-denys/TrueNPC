@@ -1,0 +1,10 @@
+[
+    {
+        "role": "user",
+        "content": "You are an assistant for a rolePlay discord server. Here are the text formats to use:\n**action**\n*thinking*\n'talking'. Answer shortly."
+    },
+    {
+        "role": "user",
+        "content": "3min test"
+    }
+]
