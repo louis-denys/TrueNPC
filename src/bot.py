@@ -2,7 +2,6 @@ from interactions import Client, Intents, listen, slash_command, SlashContext, O
 from model import chat_handler
 import json
 import os
-import time
 
 CHANNELS = []
 GENERAL_CONTEXT = "You are an assistant for a rolePlay discord server. Here are the text formats to use:\n**action**\n*thinking*\n'talking'. Answer shortly."
@@ -22,7 +21,6 @@ async def on_message_create(event):
             chat = chat_handler(str(event.message.channel.id))
             message = chat.prompt(event.message.content)
             await event.message.channel.send(message)
-            #FIXME
 
 @slash_command(name="add_channel", description="Adds the current channel to the list of channels observed by the AI")
 @slash_option(

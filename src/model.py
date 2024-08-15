@@ -1,7 +1,6 @@
 import requests
 import json
 
-#La classe chat permet de conserver un suivit de la conversation
 class chat_handler:
     def __init__(self, id) -> None:
         self.url = "http://localhost:11434/api/chat"
